@@ -22,7 +22,9 @@
 		159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */; };
 		159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */; };
 		159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */; };
-		159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */; };
+		159CF9D22D39C369004E6AD4 /* TVShowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D12D39C369004E6AD4 /* TVShowItem.swift */; };
+		159CF9D62D39CAED004E6AD4 /* TVShowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */; };
+		159CF9DA2D39CF47004E6AD4 /* URLAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D92D39CF47004E6AD4 /* URLAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,9 @@
 		159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterBaseView.swift; sourceTree = "<group>"; };
 		159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowResponse.swift; sourceTree = "<group>"; };
+		159CF9D12D39C369004E6AD4 /* TVShowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowItem.swift; sourceTree = "<group>"; };
+		159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDataSource.swift; sourceTree = "<group>"; };
+		159CF9D92D39CF47004E6AD4 /* URLAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */,
+				159CF9D92D39CF47004E6AD4 /* URLAdapter.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 		159CF9CF2D39C2AC004E6AD4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				159CF9D32D39CAD0004E6AD4 /* DataSource */,
 				159CF9D02D39C2B6004E6AD4 /* Model */,
 			);
 			path = Data;
@@ -279,9 +285,17 @@
 		159CF9D02D39C2B6004E6AD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */,
+				159CF9D12D39C369004E6AD4 /* TVShowItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		159CF9D32D39CAD0004E6AD4 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,9 +430,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */,
+				159CF9DA2D39CF47004E6AD4 /* URLAdapter.swift in Sources */,
 				159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */,
 				159CF9B12D3996CA004E6AD4 /* HomeView.swift in Sources */,
-				159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */,
+				159CF9D22D39C369004E6AD4 /* TVShowItem.swift in Sources */,
+				159CF9D62D39CAED004E6AD4 /* TVShowDataSource.swift in Sources */,
 				159CF9B72D399782004E6AD4 /* ShowDetailView.swift in Sources */,
 				159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */,
 				159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */,

@@ -1,6 +1,6 @@
 import Foundation
 
-struct TVShowItemResponse: Decodable {
+struct TVShowItem: Decodable {
     let id: Int
     let name: String
     let image: Image
