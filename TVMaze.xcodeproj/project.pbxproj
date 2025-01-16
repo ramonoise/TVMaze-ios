@@ -18,6 +18,11 @@
 		159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9B32D39972C004E6AD4 /* SearchView.swift */; };
 		159CF9B72D399782004E6AD4 /* ShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9B62D399782004E6AD4 /* ShowDetailView.swift */; };
 		159CF9BA2D3997CA004E6AD4 /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9B92D3997CA004E6AD4 /* EpisodeView.swift */; };
+		159CF9BE2D399DC5004E6AD4 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9BD2D399DC5004E6AD4 /* AppRouter.swift */; };
+		159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */; };
+		159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */; };
+		159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */; };
+		159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +58,11 @@
 		159CF9B32D39972C004E6AD4 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		159CF9B62D399782004E6AD4 /* ShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailView.swift; sourceTree = "<group>"; };
 		159CF9B92D3997CA004E6AD4 /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
+		159CF9BD2D399DC5004E6AD4 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterBaseView.swift; sourceTree = "<group>"; };
+		159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
+		159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +115,9 @@
 		159CF9772D398890004E6AD4 /* TVMaze */ = {
 			isa = PBXGroup;
 			children = (
-				159CF9A92D3995ED004E6AD4 /* Features */,
 				159CF9A82D3995E2004E6AD4 /* App */,
+				159CF9C62D39BA95004E6AD4 /* Core */,
+				159CF9A92D3995ED004E6AD4 /* Features */,
 				159CF97C2D398891004E6AD4 /* Assets.xcassets */,
 				159CF97E2D398891004E6AD4 /* Preview Content */,
 			);
@@ -184,6 +195,7 @@
 		159CF9AD2D39966A004E6AD4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				159CF9CF2D39C2AC004E6AD4 /* Data */,
 				159CF9AF2D3996B6004E6AD4 /* Presentation */,
 			);
 			path = Home;
@@ -227,6 +239,49 @@
 				159CF9B92D3997CA004E6AD4 /* EpisodeView.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		159CF9C62D39BA95004E6AD4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9CB2D39C24D004E6AD4 /* Network */,
+				159CF9C72D39BA96004E6AD4 /* Navigation */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		159CF9C72D39BA96004E6AD4 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */,
+				159CF9BD2D399DC5004E6AD4 /* AppRouter.swift */,
+				159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		159CF9CB2D39C24D004E6AD4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		159CF9CF2D39C2AC004E6AD4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9D02D39C2B6004E6AD4 /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		159CF9D02D39C2B6004E6AD4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				159CF9D12D39C369004E6AD4 /* TVShowResponse.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,11 +415,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */,
 				159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */,
 				159CF9B12D3996CA004E6AD4 /* HomeView.swift in Sources */,
+				159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */,
 				159CF9B72D399782004E6AD4 /* ShowDetailView.swift in Sources */,
+				159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */,
+				159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */,
 				159CF9BA2D3997CA004E6AD4 /* EpisodeView.swift in Sources */,
 				159CF9792D398890004E6AD4 /* TVMazeApp.swift in Sources */,
+				159CF9BE2D399DC5004E6AD4 /* AppRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
