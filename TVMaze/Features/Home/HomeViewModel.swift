@@ -22,7 +22,7 @@ final class HomeViewModel: HomeViewModelProtocol {
         self.dataSource = dataSource
     }
     
-    func createAllShowsSection() async throws -> HomeSectionItem {
+    func allShowsSection() async throws -> HomeSectionItem {
         let currentPage = 1
         let allShows = try await dataSource.fetchShows(page: currentPage)
         return HomeSectionItem(title: "All Shows", items: allShows, type: .expanded(page: currentPage))
@@ -31,19 +31,12 @@ final class HomeViewModel: HomeViewModelProtocol {
     func loadData() async {
         state = .loading
         do {
-            let allShows = try await createAllShowsSection()
-            state = .loaded(sections: [
-                allShows
-            ])
+            async let sections = [
+                allShowsSection()
+            ]
+            state = try await .loaded(sections: sections)
         } catch {
             state = .failed(errorMessage: "Something odd happened. Try again later.")
         }
-    }
-}
-
-@MainActor
-class HomeViewModelFactory {
-    static func createViewModel() -> HomeViewModel {
-        return HomeViewModel(dataSource: TVShowDataSource())
     }
 }

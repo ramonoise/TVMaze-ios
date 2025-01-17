@@ -8,9 +8,9 @@ struct NetworkAsyncImage: View {
         AsyncImage(url: url) { phase in
             switch phase {
                 case .success(let image):
-                    image
+                    image.resizable()
                 default:
-                    placeholderImage
+                    placeholderImage.resizable()
             }
         }
     }

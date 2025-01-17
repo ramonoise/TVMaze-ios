@@ -4,6 +4,7 @@ protocol TVShowDataSourceProtocol {
     init(httpClient: HttpClient)
     
     func fetchShows(page: Int) async throws -> [TVShow]
+    func fetchShowDetail(id: Int) async throws -> TVShowDetail
     func fetchQuery(query:String, page: Int) async throws -> [TVShow]
 }
 
@@ -14,12 +15,21 @@ final class TVShowDataSource: TVShowDataSourceProtocol {
         self.httpClient = httpClient
     }
     
+    func fetchShowDetail(id: Int) async throws -> TVShowDetail {
+        let url = URLStringBuilder
+            .build(url: "https://api.tvmaze.com/shows/:id?embed=episodes",
+                   replacingParameters: ["id" : String(id)])
+        
+        let response: TVShowDetailResponse = try await httpClient.request(urlString: url)
+        return response.toDomain()
+    }
+    
     func fetchShows(page: Int) async throws -> [TVShow] {
         let url = URLStringBuilder
             .build(url: "https://api.tvmaze.com/shows?page=:page",
                    replacingParameters: ["page": String(page)])
         
-        let response: [TVShowItemResponse] = try await httpClient.request(urlString: url)
+        let response: [TVShowResponse] = try await httpClient.request(urlString: url)
         return response.map { $0.toDomain() }
     }
     
@@ -28,7 +38,7 @@ final class TVShowDataSource: TVShowDataSourceProtocol {
             .build(url: "https://api.tvmaze.com/shows?q=:query&page=:page",
                    replacingParameters: ["query": query,
                                          "page": String(page)])
-        let response: [TVShowItemResponse] = try await httpClient.request(urlString: url)
+        let response: [TVShowResponse] = try await httpClient.request(urlString: url)
         return response.map { $0.toDomain() }
     }
 }

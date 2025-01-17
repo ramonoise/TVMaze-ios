@@ -2,22 +2,31 @@ import SwiftUI
 
 struct ShowView: View {
     @EnvironmentObject private var router: AppRouter
+    var tvShow: TVShow
+    
+    var genres: String {
+        tvShow.genres.joined(separator: ", ")
+    }
+    
+    var scheduleDays: String {
+        tvShow.schedule.days.joined(separator: ", ")
+    }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 200)
-                    .foregroundColor(.gray)
+                NetworkAsyncImage(url: URL(string: tvShow.image.originalURL))
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity, maxHeight: 300)
 
-                Text("Show Name")
+                Text(tvShow.name)
                     .font(.title)
                     .bold()
 
-                Text("Genres: Genre1, Genre2")
+                Text("Genres: \(genres)")
                     .font(.subheadline)
 
-                Text("Air date: <airdate>")
+                Text("Airs at \(tvShow.schedule.time) on \(scheduleDays)")
                     .font(.subheadline)
 
                 Text("Summary")
@@ -51,5 +60,11 @@ struct ShowView: View {
 }
 
 #Preview {
-    ShowView()
+    ShowView(tvShow: .init(id: 1,
+                           name: "The Amazing Show",
+                           image: .init(mediumURL: "",
+                                        originalURL: ""),
+                           genres: ["Drama", "Comedy", "Action"],
+                           schedule: .init(time: "21:00",
+                                           days: ["Sunday", "Saturday"])))
 }

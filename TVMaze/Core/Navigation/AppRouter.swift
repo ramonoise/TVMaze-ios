@@ -4,7 +4,7 @@ import Foundation
 enum AppRoute: Hashable {
     case main
     case search
-    case show(id: String)
+    case show(item: TVShow)
     case episode(id: String)
 }
 
@@ -17,11 +17,11 @@ final class AppRouter: RouterProtocol {
     func build(route: AppRoute) -> some View {
         switch route {
             case .main:
-                HomeView(viewModel: HomeViewModelFactory.createViewModel())
+                HomeFactory.build()
             case .search:
                 SearchView()
-            case .show(_):
-                ShowView()
+            case let .show(item):
+                ShowView(tvShow: item)
             case .episode(_):
                 EpisodeView()
         }
