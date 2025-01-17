@@ -22,9 +22,14 @@
 		159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */; };
 		159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */; };
 		159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */; };
-		159CF9D22D39C369004E6AD4 /* TVShowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D12D39C369004E6AD4 /* TVShowItem.swift */; };
+		159CF9D22D39C369004E6AD4 /* TVShowItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D12D39C369004E6AD4 /* TVShowItemResponse.swift */; };
 		159CF9D62D39CAED004E6AD4 /* TVShowDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */; };
 		159CF9DA2D39CF47004E6AD4 /* URLAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9D92D39CF47004E6AD4 /* URLAdapter.swift */; };
+		15EEA3C02D3AF294006C02AF /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3BF2D3AF294006C02AF /* TVShow.swift */; };
+		15EEA3C32D3AF675006C02AF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */; };
+		15EEA3C62D3AF7ED006C02AF /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */; };
+		15EEA3C92D3B03C6006C02AF /* HomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C82D3B03C6006C02AF /* HomeSectionView.swift */; };
+		15EEA3CD2D3B0720006C02AF /* NetworkAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +69,14 @@
 		159CF9C42D39B669004E6AD4 /* AppRouterBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouterBaseView.swift; sourceTree = "<group>"; };
 		159CF9C92D39BAA7004E6AD4 /* RouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterProtocol.swift; sourceTree = "<group>"; };
 		159CF9CD2D39C26A004E6AD4 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
-		159CF9D12D39C369004E6AD4 /* TVShowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowItem.swift; sourceTree = "<group>"; };
+		159CF9D12D39C369004E6AD4 /* TVShowItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowItemResponse.swift; sourceTree = "<group>"; };
 		159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDataSource.swift; sourceTree = "<group>"; };
 		159CF9D92D39CF47004E6AD4 /* URLAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdapter.swift; sourceTree = "<group>"; };
+		15EEA3BF2D3AF294006C02AF /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
+		15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
+		15EEA3C82D3B03C6006C02AF /* HomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionView.swift; sourceTree = "<group>"; };
+		15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAsyncImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +209,7 @@
 		159CF9AD2D39966A004E6AD4 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3BC2D3AF277006C02AF /* Domain */,
 				159CF9CF2D39C2AC004E6AD4 /* Data */,
 				159CF9AF2D3996B6004E6AD4 /* Presentation */,
 			);
@@ -216,7 +227,10 @@
 		159CF9AF2D3996B6004E6AD4 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3C42D3AF7C8006C02AF /* Model */,
 				159CF9B02D3996CA004E6AD4 /* HomeView.swift */,
+				15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */,
+				15EEA3C82D3B03C6006C02AF /* HomeSectionView.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -248,6 +262,7 @@
 		159CF9C62D39BA95004E6AD4 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3CA2D3B070F006C02AF /* UI */,
 				159CF9CB2D39C24D004E6AD4 /* Network */,
 				159CF9C72D39BA96004E6AD4 /* Navigation */,
 			);
@@ -285,7 +300,7 @@
 		159CF9D02D39C2B6004E6AD4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				159CF9D12D39C369004E6AD4 /* TVShowItem.swift */,
+				159CF9D12D39C369004E6AD4 /* TVShowItemResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,6 +311,46 @@
 				159CF9D52D39CAED004E6AD4 /* TVShowDataSource.swift */,
 			);
 			path = DataSource;
+			sourceTree = "<group>";
+		};
+		15EEA3BC2D3AF277006C02AF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3BD2D3AF27D006C02AF /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		15EEA3BD2D3AF27D006C02AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3BF2D3AF294006C02AF /* TVShow.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15EEA3C42D3AF7C8006C02AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15EEA3CA2D3B070F006C02AF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3CB2D3B0712006C02AF /* Image */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		15EEA3CB2D3B0712006C02AF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -429,14 +484,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EEA3CD2D3B0720006C02AF /* NetworkAsyncImage.swift in Sources */,
+				15EEA3C02D3AF294006C02AF /* TVShow.swift in Sources */,
 				159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */,
 				159CF9DA2D39CF47004E6AD4 /* URLAdapter.swift in Sources */,
 				159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */,
 				159CF9B12D3996CA004E6AD4 /* HomeView.swift in Sources */,
-				159CF9D22D39C369004E6AD4 /* TVShowItem.swift in Sources */,
+				159CF9D22D39C369004E6AD4 /* TVShowItemResponse.swift in Sources */,
 				159CF9D62D39CAED004E6AD4 /* TVShowDataSource.swift in Sources */,
 				159CF9B72D399782004E6AD4 /* ShowDetailView.swift in Sources */,
 				159CF9CE2D39C26A004E6AD4 /* HttpClient.swift in Sources */,
+				15EEA3C92D3B03C6006C02AF /* HomeSectionView.swift in Sources */,
+				15EEA3C32D3AF675006C02AF /* HomeViewModel.swift in Sources */,
+				15EEA3C62D3AF7ED006C02AF /* HomeSectionItem.swift in Sources */,
 				159CF9C52D39B669004E6AD4 /* AppRouterBaseView.swift in Sources */,
 				159CF9BA2D3997CA004E6AD4 /* EpisodeView.swift in Sources */,
 				159CF9792D398890004E6AD4 /* TVMazeApp.swift in Sources */,

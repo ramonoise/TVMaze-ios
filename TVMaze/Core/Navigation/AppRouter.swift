@@ -17,7 +17,7 @@ final class AppRouter: RouterProtocol {
     func build(route: AppRoute) -> some View {
         switch route {
             case .main:
-                HomeView()
+                HomeView(viewModel: HomeViewModelFactory.createViewModel())
             case .search:
                 SearchView()
             case .show(_):

@@ -2,105 +2,44 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var router: AppRouter
+    @StateObject private var viewModel: HomeViewModel
     
-    @ViewBuilder
-    private func categoryListView(category: String) -> some View {
-        HStack(alignment: .center) {
-            Text(category)
-                .font(.title2)
-                .bold()
-                .padding(.leading)
-            Spacer()
-        }.padding(.top)
-        
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHGrid(rows: [GridItem(.flexible())], spacing: 10) {
-                ForEach(0..<10, id: \.self) { movie in
-                    VStack {
-                        // Simulate a poster image with a rounded rectangle
-                        Rectangle()
-                            .fill(Color.gray)
-                            .frame(width: 120, height: 180)
-                            .cornerRadius(10)
-                            .overlay(
-                                Text("Show's name")
-                                    .font(.caption)
-                                    .foregroundColor(.white)
-                                    .font(.caption)
-                                    .padding(5)
-                                    .background(Color.black.opacity(0.6))
-                                    .cornerRadius(5),
-                                alignment: .bottom
-                            )
-                    }.onTapGesture {
-                        router.push(route: .show(id: ""))
-                    }
-                }
-            }
-        }
-    }
-    
-    @ViewBuilder
-    private func allShows() -> some View {
-        HStack(alignment: .center) {
-            Text("All shows")
-                .font(.title2)
-                .bold()
-                .padding(.leading)
-            Spacer()
-        }.padding(.top)
-        
-        
-        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
-            ForEach(0..<12) { _ in
-                // Simulate a poster image with a rounded rectangle
-                Rectangle()
-                    .fill(Color.gray)
-                    .frame(width: 120, height: 180)
-                    .cornerRadius(10)
-                    .overlay(
-                        Text("Show's name")
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .font(.caption)
-                            .padding(5)
-                            .background(Color.black.opacity(0.6))
-                            .cornerRadius(5),
-                        alignment: .bottom
-                    ).onTapGesture {
-                        router.push(route: .show(id: ""))
-                    }
-            }
-        }
+    init(viewModel: HomeViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            VStack(alignment: .leading) {
-                ScrollView(showsIndicators: false) {
-//                    categoryListView(category: "Drama")
-//                    categoryListView(category: "Comedy")
+            switch viewModel.state {
+                case .loading:
+                    ProgressView()
                     
-                    allShows()
-                    
-                    Spacer()
-                }
-            }
-            .navigationTitle("TVMaze")
-            .toolbar(content: {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        router.push(route: .search)
-                    } label: {
-                        Image(systemName: "magnifyingglass")
+                case .loaded(let sections):
+                    VStack(alignment: .leading) {
+                        ScrollView(showsIndicators: false) {
+                            ForEach(sections) { section in
+                                HomeSectionView(section: section)
+                            }
+                            Spacer()
+                        }
                     }
-                }
-            })
+                    .navigationTitle("Home")
+                    .toolbar(content: {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button {
+                                router.push(route: .search)
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                            }
+                        }
+                    })
+                    
+                case .failed(let errorMessage):
+                    Text(errorMessage)
+            }
+        }
+        .onAppear {
+            Task { await viewModel.loadData() }
         }
     }
-}
-
-#Preview {
-    HomeView()
-        .environmentObject(AppRouter())
 }

@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 
+@MainActor
 protocol RouterProtocol: Observable, ObservableObject {
     associatedtype Route where Route: Hashable
     
