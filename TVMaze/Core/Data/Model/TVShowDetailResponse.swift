@@ -36,6 +36,16 @@ struct TVShowDetailResponse: Decodable {
         let embeddedContainer = try container.nestedContainer(keyedBy: EmbeddedKeys.self, forKey: ._embedded)
         self.episodes = try embeddedContainer.decode([EpisodeResponse].self, forKey: .episodes)
     }
+
+    init(id: Int, name: String, image: ImageResponse, genres: [String], schedule: ScheduleResponse, summary: String, episodes: [EpisodeResponse]) {
+        self.id = id
+        self.name = name
+        self.image = image
+        self.genres = genres
+        self.schedule = schedule
+        self.summary = summary
+        self.episodes = episodes
+    }
 }
 
 extension TVShowDetailResponse {

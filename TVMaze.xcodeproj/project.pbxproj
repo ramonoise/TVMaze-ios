@@ -25,6 +25,9 @@
 		1513DE482D3C64DB00E2285A /* TypedAnyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE472D3C64DB00E2285A /* TypedAnyView.swift */; };
 		1513DE4A2D3C67D400E2285A /* ShowDetailCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE492D3C67D400E2285A /* ShowDetailCoordinatorTests.swift */; };
 		1513DE4F2D3C690200E2285A /* HttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE4E2D3C690200E2285A /* HttpClientTests.swift */; };
+		1513DE542D3C6E4300E2285A /* TVShowResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE532D3C6E4300E2285A /* TVShowResponseTests.swift */; };
+		1513DE562D3C6EAE00E2285A /* TVShowDetailResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE552D3C6EAE00E2285A /* TVShowDetailResponseTests.swift */; };
+		1513DE582D3C701900E2285A /* EpisodeResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1513DE572D3C701900E2285A /* EpisodeResponseTests.swift */; };
 		159CF9792D398890004E6AD4 /* TVMazeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159CF9782D398890004E6AD4 /* TVMazeApp.swift */; };
 		159CF97D2D398891004E6AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 159CF97C2D398891004E6AD4 /* Assets.xcassets */; };
 		159CF9802D398891004E6AD4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 159CF97F2D398891004E6AD4 /* Preview Assets.xcassets */; };
@@ -110,6 +113,9 @@
 		1513DE472D3C64DB00E2285A /* TypedAnyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedAnyView.swift; sourceTree = "<group>"; };
 		1513DE492D3C67D400E2285A /* ShowDetailCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailCoordinatorTests.swift; sourceTree = "<group>"; };
 		1513DE4E2D3C690200E2285A /* HttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClientTests.swift; sourceTree = "<group>"; };
+		1513DE532D3C6E4300E2285A /* TVShowResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowResponseTests.swift; sourceTree = "<group>"; };
+		1513DE552D3C6EAE00E2285A /* TVShowDetailResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailResponseTests.swift; sourceTree = "<group>"; };
+		1513DE572D3C701900E2285A /* EpisodeResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeResponseTests.swift; sourceTree = "<group>"; };
 		159CF9752D398890004E6AD4 /* TVMaze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TVMaze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		159CF9782D398890004E6AD4 /* TVMazeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVMazeApp.swift; sourceTree = "<group>"; };
 		159CF97C2D398891004E6AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -296,6 +302,7 @@
 		1513DE4C2D3C68F800E2285A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1513DE502D3C6E2D00E2285A /* Data */,
 				1513DE4D2D3C68FA00E2285A /* Network */,
 			);
 			path = Core;
@@ -307,6 +314,24 @@
 				1513DE4E2D3C690200E2285A /* HttpClientTests.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1513DE502D3C6E2D00E2285A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1513DE512D3C6E2F00E2285A /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1513DE512D3C6E2F00E2285A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1513DE532D3C6E4300E2285A /* TVShowResponseTests.swift */,
+				1513DE552D3C6EAE00E2285A /* TVShowDetailResponseTests.swift */,
+				1513DE572D3C701900E2285A /* EpisodeResponseTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		159CF96C2D398890004E6AD4 = {
@@ -853,11 +878,14 @@
 			files = (
 				1513DE4A2D3C67D400E2285A /* ShowDetailCoordinatorTests.swift in Sources */,
 				15E27FDF2D3C347D008D9F23 /* MockURLSession.swift in Sources */,
+				1513DE542D3C6E4300E2285A /* TVShowResponseTests.swift in Sources */,
 				1513DE442D3C60A200E2285A /* HomeCoordinatorTests.swift in Sources */,
 				1513DE3E2D3C59D900E2285A /* CommonAssertion.swift in Sources */,
 				1513DE3A2D3C58E200E2285A /* HomeViewModelTests.swift in Sources */,
 				15E27FE32D3C35BA008D9F23 /* MockHttpClient.swift in Sources */,
 				1513DE362D3C558F00E2285A /* SearchViewModelTests.swift in Sources */,
+				1513DE562D3C6EAE00E2285A /* TVShowDetailResponseTests.swift in Sources */,
+				1513DE582D3C701900E2285A /* EpisodeResponseTests.swift in Sources */,
 				15E27FE12D3C3529008D9F23 /* MockTVShowDataSource.swift in Sources */,
 				15E27FE52D3C3602008D9F23 /* MockJSONDecoder.swift in Sources */,
 				1513DE412D3C5E3B00E2285A /* ShowDetailTests.swift in Sources */,

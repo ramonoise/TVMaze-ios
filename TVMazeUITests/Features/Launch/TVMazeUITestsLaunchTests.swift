@@ -1,8 +1,3 @@
-//
-//  TVMazeUITestsLaunchTests.swift
-//  TVMazeUITests
-//
-
 import XCTest
 
 final class TVMazeUITestsLaunchTests: XCTestCase {
