@@ -1,4 +1,5 @@
 import SwiftUI
+import CachedAsyncImage
 
 struct HomeSectionView: View {
     @EnvironmentObject private var router: AppRouter
@@ -62,7 +63,7 @@ struct HomeSectionView: View {
         
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
             ForEach(section.items) { item in
-                NetworkAsyncImage(url: URL(string: item.image.mediumURL))
+                CachedImageWithFallback(imageUrl: item.image.mediumURL)
                     .frame(width: 120, height: 180)
                     .cornerRadius(10)
                     .overlay(

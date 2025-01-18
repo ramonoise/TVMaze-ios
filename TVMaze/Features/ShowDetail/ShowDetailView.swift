@@ -1,3 +1,4 @@
+import CachedAsyncImage
 import SwiftUI
 
 struct ShowDetailView: View {
@@ -12,27 +13,28 @@ struct ShowDetailView: View {
     func loadedView(showDetail: TVShowDetail) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                NetworkAsyncImage(url: URL(string: showDetail.image.originalURL))
-                    .scaledToFit()
-                    .frame(maxWidth: .infinity, maxHeight: 300)
-
+                CachedImageWithFallback(imageUrl: showDetail.image.originalURL,
+                                        fallbackUrl: showDetail.image.mediumURL)
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: 300)
+                
                 Text(showDetail.name)
                     .font(.title)
                     .bold()
-
+                
                 Text("Genres: \(showDetail.genres.joined(separator: ", "))")
                     .font(.subheadline)
-
+                
                 Text("Airs at \(showDetail.schedule.time) on \(showDetail.schedule.days.joined(separator: ", "))")
                     .font(.subheadline)
-
+                
                 RichTextView(html: showDetail.summary)
                     .font(.body)
-
+                
                 Text("Episodes")
                     .font(.title2)
                     .bold()
-
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(0..<10) { episode in

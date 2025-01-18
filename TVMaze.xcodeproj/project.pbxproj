@@ -29,7 +29,6 @@
 		15EEA3C32D3AF675006C02AF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */; };
 		15EEA3C62D3AF7ED006C02AF /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */; };
 		15EEA3C92D3B03C6006C02AF /* HomeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C82D3B03C6006C02AF /* HomeSectionView.swift */; };
-		15EEA3CD2D3B0720006C02AF /* NetworkAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */; };
 		15EEA3CF2D3B1324006C02AF /* TVShowDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3CE2D3B1324006C02AF /* TVShowDetailResponse.swift */; };
 		15EEA3D12D3B14EC006C02AF /* ImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3D02D3B14EC006C02AF /* ImageResponse.swift */; };
 		15EEA3D42D3B151C006C02AF /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3D32D3B151C006C02AF /* ScheduleResponse.swift */; };
@@ -43,6 +42,8 @@
 		15EEA3E72D3B1E04006C02AF /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E62D3B1E04006C02AF /* ShowDetailViewModel.swift */; };
 		15EEA3EA2D3B2148006C02AF /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E92D3B2148006C02AF /* AttributedText.swift */; };
 		15EEA3ED2D3B2822006C02AF /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 15EEA3EC2D3B2822006C02AF /* RichText */; };
+		15EEA3F22D3B2B6C006C02AF /* CachedAsyncImage in Frameworks */ = {isa = PBXBuildFile; productRef = 15EEA3F12D3B2B6C006C02AF /* CachedAsyncImage */; };
+		15EEA3F52D3B2D89006C02AF /* CachedTVShowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3F42D3B2D89006C02AF /* CachedTVShowImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,7 +90,6 @@
 		15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
 		15EEA3C82D3B03C6006C02AF /* HomeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionView.swift; sourceTree = "<group>"; };
-		15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAsyncImage.swift; sourceTree = "<group>"; };
 		15EEA3CE2D3B1324006C02AF /* TVShowDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowDetailResponse.swift; sourceTree = "<group>"; };
 		15EEA3D02D3B14EC006C02AF /* ImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResponse.swift; sourceTree = "<group>"; };
 		15EEA3D32D3B151C006C02AF /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
@@ -102,6 +102,7 @@
 		15EEA3E42D3B1D73006C02AF /* ShowDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailFactory.swift; sourceTree = "<group>"; };
 		15EEA3E62D3B1E04006C02AF /* ShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModel.swift; sourceTree = "<group>"; };
 		15EEA3E92D3B2148006C02AF /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		15EEA3F42D3B2D89006C02AF /* CachedTVShowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedTVShowImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15EEA3ED2D3B2822006C02AF /* RichText in Frameworks */,
+				15EEA3F22D3B2B6C006C02AF /* CachedAsyncImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,18 +355,10 @@
 		15EEA3CA2D3B070F006C02AF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3F32D3B2D7C006C02AF /* Image */,
 				15EEA3E82D3B213F006C02AF /* Text */,
-				15EEA3CB2D3B0712006C02AF /* Image */,
 			);
 			path = UI;
-			sourceTree = "<group>";
-		};
-		15EEA3CB2D3B0712006C02AF /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				15EEA3CC2D3B0720006C02AF /* NetworkAsyncImage.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		15EEA3E02D3B1B50006C02AF /* Factory */ = {
@@ -391,6 +385,14 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
+		15EEA3F32D3B2D7C006C02AF /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3F42D3B2D89006C02AF /* CachedTVShowImage.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -409,6 +411,7 @@
 			name = TVMaze;
 			packageProductDependencies = (
 				15EEA3EC2D3B2822006C02AF /* RichText */,
+				15EEA3F12D3B2B6C006C02AF /* CachedAsyncImage */,
 			);
 			productName = TVMaze;
 			productReference = 159CF9752D398890004E6AD4 /* TVMaze.app */;
@@ -484,6 +487,7 @@
 			mainGroup = 159CF96C2D398890004E6AD4;
 			packageReferences = (
 				15EEA3EB2D3B2822006C02AF /* XCRemoteSwiftPackageReference "RichText" */,
+				15EEA3F02D3B2B6C006C02AF /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */,
 			);
 			productRefGroup = 159CF9762D398890004E6AD4 /* Products */;
 			projectDirPath = "";
@@ -528,7 +532,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				15EEA3CD2D3B0720006C02AF /* NetworkAsyncImage.swift in Sources */,
 				15EEA3C02D3AF294006C02AF /* TVShow.swift in Sources */,
 				15EEA3DB2D3B180D006C02AF /* TVShowImage.swift in Sources */,
 				159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */,
@@ -556,6 +559,7 @@
 				159CF9BA2D3997CA004E6AD4 /* EpisodeView.swift in Sources */,
 				15EEA3E22D3B1B56006C02AF /* HomeFactory.swift in Sources */,
 				159CF9792D398890004E6AD4 /* TVMazeApp.swift in Sources */,
+				15EEA3F52D3B2D89006C02AF /* CachedTVShowImage.swift in Sources */,
 				159CF9BE2D399DC5004E6AD4 /* AppRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -892,6 +896,14 @@
 				minimumVersion = 2.5.0;
 			};
 		};
+		15EEA3F02D3B2B6C006C02AF /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lorenzofiamingo/swiftui-cached-async-image";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -899,6 +911,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 15EEA3EB2D3B2822006C02AF /* XCRemoteSwiftPackageReference "RichText" */;
 			productName = RichText;
+		};
+		15EEA3F12D3B2B6C006C02AF /* CachedAsyncImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15EEA3F02D3B2B6C006C02AF /* XCRemoteSwiftPackageReference "swiftui-cached-async-image" */;
+			productName = CachedAsyncImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

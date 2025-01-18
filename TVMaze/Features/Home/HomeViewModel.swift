@@ -36,7 +36,7 @@ final class HomeViewModel: HomeViewModelProtocol {
             ]
             state = try await .loaded(sections: sections)
         } catch {
-            state = .failed(errorMessage: "Something odd happened. Try again later.")
+            state = .failed(errorMessage: error.localizedDescription)
         }
     }
 }
