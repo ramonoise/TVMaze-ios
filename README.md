@@ -4,7 +4,7 @@
 ![Layout](Resources/TV_maze_initial_layout.png)
 
 ## Demo
-WIP
+![VideoDemo](Resources/tv_maze_demo_low.gif)
 
 ## Architecture
 
