@@ -1,19 +1,18 @@
 import SwiftUI
-import CachedAsyncImage
 
-struct CachedImageWithFallback: View {
+struct AsyncImageWithFallback: View {
     var imageUrl: String?
     var fallbackUrl: String?
     
     var body: some View {
-        CachedAsyncImage(url: URL(string: imageUrl ?? "")) { imageResponse in
+        AsyncImage(url: URL(string: imageUrl ?? "")) { imageResponse in
             switch imageResponse {
                 case .empty:
                     ProgressView()
                 case .success(let image):
                     image.resizable()
                 default:
-                    CachedAsyncImage(url: URL(string: fallbackUrl ?? "")) { fallbackResponse in
+                    AsyncImage(url: URL(string: fallbackUrl ?? "")) { fallbackResponse in
                         switch fallbackResponse {
                             case .empty:
                                 ProgressView()
@@ -30,6 +29,6 @@ struct CachedImageWithFallback: View {
 
 #Preview {
     let dummyImageURL: String = "https://dummyimage.com/150"
-    return CachedImageWithFallback(imageUrl: dummyImageURL,
-                                   fallbackUrl: dummyImageURL)
+    return AsyncImageWithFallback(imageUrl: dummyImageURL,
+                                  fallbackUrl: dummyImageURL)
 }

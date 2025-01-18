@@ -4,7 +4,7 @@ struct TVShowCardView: View {
     var tvShow: TVShow
     
     var body: some View {
-        CachedImageWithFallback(imageUrl: tvShow.image.mediumURL)
+        AsyncImageWithFallback(imageUrl: tvShow.image.mediumURL)
             .bordered()
             .textOverlay(text: tvShow.name)
     }

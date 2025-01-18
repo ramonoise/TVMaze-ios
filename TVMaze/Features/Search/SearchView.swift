@@ -1,5 +1,9 @@
 import SwiftUI
 
+enum SearchViewIdentifier: String, RawRepresentable {
+    case searchBar = "SearchField"
+}
+
 struct SearchView: View {
     @StateObject private var viewModel: SearchViewModel
     
@@ -44,6 +48,9 @@ private extension SearchView {
                       onCommit: performSearch)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .textInputAutocapitalization(.words)
+            .accessibilityIdentifier(
+                SearchViewIdentifier.searchBar.rawValue
+            )
             
             Image(systemName: "magnifyingglass")
                 .foregroundColor(.accentColor)

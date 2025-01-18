@@ -8,9 +8,9 @@ enum AppRoute: Hashable, Codable {
     case episode(TVShowEpisode)
 }
 
+@MainActor
 final class AppRouter: RouterProtocol {
     typealias Route = AppRoute
-    
     @Published var path: NavigationPath = NavigationPath()
     
     @ViewBuilder

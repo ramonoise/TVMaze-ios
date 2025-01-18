@@ -1,8 +1,21 @@
 import SwiftUI
-import CachedAsyncImage
+
+enum HomeSectionAccessibilityIdentifier {
+    case tvShow(id: Int)
+    case title(text: String)
+    
+    var rawValue: String {
+        switch self {
+            case let .tvShow(id):
+                return "TVShow_\(id)"
+            case let .title(text):
+                return "Section_Title_\(text)"
+        }
+    }
+}
 
 struct HomeSectionView: View {
-    @EnvironmentObject private var router: AppRouter
+    @Environment(\.tvShowDependencies) var dependencies
     var section: HomeSectionItem
     
     var body: some View {
@@ -21,6 +34,9 @@ struct HomeSectionView: View {
                 .font(.title2)
                 .bold()
                 .padding(.leading)
+                .accessibilityIdentifier(
+                    HomeSectionAccessibilityIdentifier.title(text: text).rawValue
+                )
             Spacer()
         }.padding(.top)
     }
@@ -31,10 +47,12 @@ struct HomeSectionView: View {
         
         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
             ForEach(section.items) { item in
-                TVShowCardView(tvShow: item)
-                    .onTapGesture {
-                        router.push(route: .show(id: item.id))
-                    }
+                NavigationLink(value: HomeRoute.showCard(id: item.id)) {
+                    TVShowCardView(tvShow: item)
+                        .accessibilityIdentifier(
+                            HomeSectionAccessibilityIdentifier.tvShow(id: item.id).rawValue
+                        )
+                }
             }
         }
     }
@@ -46,10 +64,8 @@ struct HomeSectionView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             LazyHGrid(rows: [GridItem(.flexible())], spacing: 10) {
                 ForEach(section.items) { item in
-                    VStack {
+                    NavigationLink(value: HomeRoute.showCard(id: item.id)) {
                         TVShowCardView(tvShow: item)
-                    }.onTapGesture {
-                        router.push(route: .show(id: item.id))
                     }
                 }
             }

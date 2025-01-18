@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct ShowDetailSeasonEpisodesView: View {
-    @EnvironmentObject private var router: AppRouter
+    private var coordinator: any ShowDetailCoordinatorProtocol
     var season: TVShowDetailSeason
     
-    init(season: TVShowDetailSeason) {
+    init(season: TVShowDetailSeason, coordinator: any ShowDetailCoordinatorProtocol) {
         self.season = season
+        self.coordinator = coordinator
     }
     
     var body: some View {
@@ -17,20 +18,25 @@ struct ShowDetailSeasonEpisodesView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(season.episodes) { episode in
-                        VStack {
-                            CachedImageWithFallback(imageUrl: episode.image?.mediumURL,
-                                                    fallbackUrl: episode.image?.originalURL)
-                            .scaledToFill()
-                            .frame(width: 100, height: 100)
-                            .foregroundColor(.gray)
-                            .clipped()
-                            .cornerRadius(5)
-                            Text(episodeName(episode, limitingFactor: 12))
-                                .font(.caption)
+                        NavigationLink(value: ShowDetailRoute.episode(episode)) {
+                            VStack {
+                                AsyncImageWithFallback(imageUrl: episode.image?.mediumURL,
+                                                       fallbackUrl: episode.image?.originalURL)
+                                .scaledToFill()
+                                .frame(width: 100, height: 100)
+                                .foregroundColor(.gray)
+                                .clipped()
+                                .cornerRadius(5)
+                                
+                                Text(episodeName(episode, limitingFactor: 12))
+                                    .foregroundStyle(.primary)
+                                    .font(.caption)
+                                    .accessibilityIdentifier(
+                                        ShowDetailViewIdentifier.episode(id: episode.id)
+                                    )
+                            }
                         }
-                        .onTapGesture {
-                            router.push(route: .episode(episode))
-                        }
+                        .buttonStyle(.plain)
                     }
                 }
             }
