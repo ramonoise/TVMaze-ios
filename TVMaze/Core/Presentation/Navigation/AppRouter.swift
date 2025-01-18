@@ -5,7 +5,7 @@ enum AppRoute: Hashable {
     case main
     case search
     case show(id: Int)
-    case episode(id: String)
+    case episode(TVShowEpisode)
 }
 
 final class AppRouter: RouterProtocol {
@@ -20,8 +20,8 @@ final class AppRouter: RouterProtocol {
                 HomeFactory.build()
             case let .show(id):
                 ShowDetailFactory.build(showId: id)
-            case .episode(_):
-                EpisodeView()
+            case .episode(let episode):
+                EpisodeFactory.build(episode: episode)
             case .search:
                 SearchView()
         }

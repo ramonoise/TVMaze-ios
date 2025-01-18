@@ -1,6 +1,6 @@
 import Foundation
 
-struct TVShowEpisode: Decodable {
+struct TVShowEpisode: Identifiable, Hashable {
     let id: Int
     let name: String
     let number: Int

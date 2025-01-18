@@ -2,11 +2,11 @@ import SwiftUI
 import CachedAsyncImage
 
 struct CachedImageWithFallback: View {
-    var imageUrl: String
+    var imageUrl: String?
     var fallbackUrl: String?
     
     var body: some View {
-        CachedAsyncImage(url: URL(string: imageUrl)) { imageResponse in
+        CachedAsyncImage(url: URL(string: imageUrl ?? "")) { imageResponse in
             switch imageResponse {
                 case .empty:
                     ProgressView()

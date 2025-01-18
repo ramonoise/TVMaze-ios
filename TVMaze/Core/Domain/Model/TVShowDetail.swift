@@ -1,6 +1,6 @@
 import Foundation
 
-struct TVShowDetail: Decodable {
+struct TVShowDetail {
     let id: Int
     let name: String
     let image: TVShowImage
@@ -8,4 +8,18 @@ struct TVShowDetail: Decodable {
     let schedule: TVShowSchedule
     let summary: String
     let episodes: [TVShowEpisode]
+}
+
+extension TVShowDetail {
+    var seasons: [TVShowDetailSeason] {
+        var seasonDict = [Int: [TVShowEpisode]]()
+        
+        for episode in episodes {
+            seasonDict[episode.season, default: []].append(episode)
+        }
+        
+        return seasonDict
+            .sorted(by: { $0.key < $1.key })
+            .map { TVShowDetailSeason(seasonNumber: $0.key, episodes: $0.value) }
+    }
 }

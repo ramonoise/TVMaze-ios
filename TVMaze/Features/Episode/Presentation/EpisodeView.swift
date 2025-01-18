@@ -1,33 +1,41 @@
 import SwiftUI
 
 struct EpisodeView: View {
+    var episode: TVShowEpisode
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            RoundedRectangle(cornerRadius: 10)
-                .frame(height: 200)
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 16) {
+                CachedImageWithFallback(imageUrl: episode.image?.originalURL,
+                                        fallbackUrl: episode.image?.mediumURL)
+                .frame(maxWidth: .infinity, minHeight: 200, maxHeight: 200)
                 .foregroundColor(.gray)
-
-            Text("Episode Name")
-                .font(.title)
-                .bold()
-
-            Text("Episode #<number>")
-                .font(.subheadline)
-
-            Text("Season #<season>")
-                .font(.subheadline)
-
-            Text("Summary")
-                .font(.body)
-
-            Spacer()
+                .cornerRadius(10)
+                
+                Text(episode.name)
+                    .font(.title)
+                    .bold()
+                
+                Text("Season \(episode.season), Episode \(episode.number)")
+                    .font(.title3)
+                
+                RichTextView(html: episode.summary)
+                    .font(.body)
+                
+                Spacer()
+            }
         }
         .padding()
-        .navigationTitle("Episode Details")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    EpisodeView()
+    EpisodeView(episode: .init(id: 1,
+                               name: "Mocked Episode",
+                               number: 10,
+                               season: 1,
+                               summary: "<b>Lorem</b> ipsum",
+                               image: .init(mediumURL: "https://dummyimage.com/150",
+                                            originalURL: "https://dummyimage.com/150")))
 }
