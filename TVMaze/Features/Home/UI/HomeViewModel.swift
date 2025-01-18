@@ -1,6 +1,6 @@
 import Foundation
 
-enum HomeViewModelState {
+enum HomeViewModelState: Equatable {
     case loading
     case loaded(sections: [HomeSectionItem])
     case failed(errorMessage: String)

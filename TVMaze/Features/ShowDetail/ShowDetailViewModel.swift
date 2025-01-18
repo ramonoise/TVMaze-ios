@@ -1,6 +1,6 @@
 import Foundation
 
-enum ShowDetailViewModelState {
+enum ShowDetailViewModelState: Equatable {
     case loading
     case loaded(showDetail: TVShowDetail)
     case failed(errorMessage: String)

@@ -1,10 +1,9 @@
 import Foundation
 
-struct TVShowImage: Hashable, Codable {
+struct TVShowImage: Hashable, Codable, Equatable {
     let mediumURL: String
     let originalURL: String
 }
-
 
 extension TVShowImage {
     static func dummy() -> TVShowImage {

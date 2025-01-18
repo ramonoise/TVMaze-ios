@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-enum SearchViewModelState {
+enum SearchViewModelState: Equatable {
     case emptyState
     case loading
     case loaded(shows: [TVShow])

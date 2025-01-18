@@ -18,11 +18,9 @@ final class ShowDetailCoordinator: ShowDetailCoordinatorProtocol {
     }
     
     func resolve(route: ShowDetailRoute) -> any View {
-        Group {
-            switch route {
-                case .episode(let episode):
-                    EpisodeFactory.build(episode: episode)
-            }
+        switch route {
+            case .episode(let episode):
+                TypedAnyView(EpisodeFactory.build(episode: episode))
         }
     }
 }

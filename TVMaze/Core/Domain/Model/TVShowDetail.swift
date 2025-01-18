@@ -1,6 +1,6 @@
 import Foundation
 
-struct TVShowDetail {
+struct TVShowDetail: Equatable {
     let id: Int
     let name: String
     let image: TVShowImage

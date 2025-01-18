@@ -5,7 +5,7 @@ enum HttpMethod: String, RawRepresentable {
     case get = "GET"
 }
 
-enum HttpClientError: Error {
+enum HttpClientError: Error, Equatable {
     case invalidURL
     case invalidResponse(data: Data, urlResponse: URLResponse)
     case invalidStatusCode(data: Data, httpResponse: HTTPURLResponse)

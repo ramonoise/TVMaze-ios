@@ -23,13 +23,11 @@ final class HomeCoordinator: HomeCoordinatorProtocol {
     
     @MainActor
     func resolve(route: HomeRoute) -> some View {
-        Group {
-            switch route {
-                case .showCard(let id):
-                    ShowDetailFactory.build(showId: id, with: dependencies)
-                case .search:
-                    SearchFactory.build(with: dependencies)
-            }
+        switch route {
+            case .showCard(let id):
+                TypedAnyView(ShowDetailFactory.build(showId: id, with: dependencies))
+            case .search:
+                TypedAnyView(SearchFactory.build(with: dependencies))
         }
     }
 }
