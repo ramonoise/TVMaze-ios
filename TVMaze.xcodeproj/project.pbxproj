@@ -39,6 +39,10 @@
 		15EEA3DD2D3B1842006C02AF /* TVShowSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3DC2D3B1842006C02AF /* TVShowSchedule.swift */; };
 		15EEA3DF2D3B1863006C02AF /* TVShowEpisode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3DE2D3B1863006C02AF /* TVShowEpisode.swift */; };
 		15EEA3E22D3B1B56006C02AF /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E12D3B1B56006C02AF /* HomeFactory.swift */; };
+		15EEA3E52D3B1D73006C02AF /* ShowDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E42D3B1D73006C02AF /* ShowDetailFactory.swift */; };
+		15EEA3E72D3B1E04006C02AF /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E62D3B1E04006C02AF /* ShowDetailViewModel.swift */; };
+		15EEA3EA2D3B2148006C02AF /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3E92D3B2148006C02AF /* AttributedText.swift */; };
+		15EEA3ED2D3B2822006C02AF /* RichText in Frameworks */ = {isa = PBXBuildFile; productRef = 15EEA3EC2D3B2822006C02AF /* RichText */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,9 @@
 		15EEA3DC2D3B1842006C02AF /* TVShowSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowSchedule.swift; sourceTree = "<group>"; };
 		15EEA3DE2D3B1863006C02AF /* TVShowEpisode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowEpisode.swift; sourceTree = "<group>"; };
 		15EEA3E12D3B1B56006C02AF /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		15EEA3E42D3B1D73006C02AF /* ShowDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailFactory.swift; sourceTree = "<group>"; };
+		15EEA3E62D3B1E04006C02AF /* ShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModel.swift; sourceTree = "<group>"; };
+		15EEA3E92D3B2148006C02AF /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15EEA3ED2D3B2822006C02AF /* RichText in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +210,7 @@
 			children = (
 				159CF9AD2D39966A004E6AD4 /* Home */,
 				159CF9AC2D399621004E6AD4 /* Search */,
-				159CF9AE2D39966E004E6AD4 /* Show */,
+				159CF9AE2D39966E004E6AD4 /* ShowDetail */,
 				159CF9AB2D3995F4004E6AD4 /* Episode */,
 			);
 			path = Features;
@@ -236,12 +244,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		159CF9AE2D39966E004E6AD4 /* Show */ = {
+		159CF9AE2D39966E004E6AD4 /* ShowDetail */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3E32D3B1D66006C02AF /* Factory */,
 				159CF9B62D399782004E6AD4 /* ShowDetailView.swift */,
+				15EEA3E62D3B1E04006C02AF /* ShowDetailViewModel.swift */,
 			);
-			path = Show;
+			path = ShowDetail;
 			sourceTree = "<group>";
 		};
 		159CF9B82D39979B004E6AD4 /* Presentation */ = {
@@ -343,6 +353,7 @@
 		15EEA3CA2D3B070F006C02AF /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				15EEA3E82D3B213F006C02AF /* Text */,
 				15EEA3CB2D3B0712006C02AF /* Image */,
 			);
 			path = UI;
@@ -364,6 +375,22 @@
 			path = Factory;
 			sourceTree = "<group>";
 		};
+		15EEA3E32D3B1D66006C02AF /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3E42D3B1D73006C02AF /* ShowDetailFactory.swift */,
+			);
+			path = Factory;
+			sourceTree = "<group>";
+		};
+		15EEA3E82D3B213F006C02AF /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				15EEA3E92D3B2148006C02AF /* AttributedText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -380,6 +407,9 @@
 			dependencies = (
 			);
 			name = TVMaze;
+			packageProductDependencies = (
+				15EEA3EC2D3B2822006C02AF /* RichText */,
+			);
 			productName = TVMaze;
 			productReference = 159CF9752D398890004E6AD4 /* TVMaze.app */;
 			productType = "com.apple.product-type.application";
@@ -452,6 +482,9 @@
 				Base,
 			);
 			mainGroup = 159CF96C2D398890004E6AD4;
+			packageReferences = (
+				15EEA3EB2D3B2822006C02AF /* XCRemoteSwiftPackageReference "RichText" */,
+			);
 			productRefGroup = 159CF9762D398890004E6AD4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -499,12 +532,15 @@
 				15EEA3C02D3AF294006C02AF /* TVShow.swift in Sources */,
 				15EEA3DB2D3B180D006C02AF /* TVShowImage.swift in Sources */,
 				159CF9CA2D39BAA7004E6AD4 /* RouterProtocol.swift in Sources */,
+				15EEA3E72D3B1E04006C02AF /* ShowDetailViewModel.swift in Sources */,
+				15EEA3EA2D3B2148006C02AF /* AttributedText.swift in Sources */,
 				15EEA3D92D3B17E8006C02AF /* TVShowDetail.swift in Sources */,
 				159CF9DA2D39CF47004E6AD4 /* URLAdapter.swift in Sources */,
 				159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */,
 				15EEA3DD2D3B1842006C02AF /* TVShowSchedule.swift in Sources */,
 				15EEA3D42D3B151C006C02AF /* ScheduleResponse.swift in Sources */,
 				159CF9B12D3996CA004E6AD4 /* HomeView.swift in Sources */,
+				15EEA3E52D3B1D73006C02AF /* ShowDetailFactory.swift in Sources */,
 				159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */,
 				159CF9D62D39CAED004E6AD4 /* TVShowDataSource.swift in Sources */,
 				15EEA3D62D3B15C2006C02AF /* EpisodeResponse.swift in Sources */,
@@ -846,6 +882,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		15EEA3EB2D3B2822006C02AF /* XCRemoteSwiftPackageReference "RichText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/NuPlay/RichText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		15EEA3EC2D3B2822006C02AF /* RichText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 15EEA3EB2D3B2822006C02AF /* XCRemoteSwiftPackageReference "RichText" */;
+			productName = RichText;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 159CF96D2D398890004E6AD4 /* Project object */;
 }

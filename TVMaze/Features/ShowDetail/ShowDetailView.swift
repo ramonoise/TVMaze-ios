@@ -1,35 +1,32 @@
 import SwiftUI
 
-struct ShowView: View {
+struct ShowDetailView: View {
     @EnvironmentObject private var router: AppRouter
-    var tvShow: TVShow
+    @StateObject private var viewModel: ShowDetailViewModel
     
-    var genres: String {
-        tvShow.genres.joined(separator: ", ")
+    init(viewModel: ShowDetailViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    var scheduleDays: String {
-        tvShow.schedule.days.joined(separator: ", ")
-    }
-    
-    var body: some View {
+    @ViewBuilder
+    func loadedView(showDetail: TVShowDetail) -> some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
-                NetworkAsyncImage(url: URL(string: tvShow.image.originalURL))
+                NetworkAsyncImage(url: URL(string: showDetail.image.originalURL))
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: 300)
 
-                Text(tvShow.name)
+                Text(showDetail.name)
                     .font(.title)
                     .bold()
 
-                Text("Genres: \(genres)")
+                Text("Genres: \(showDetail.genres.joined(separator: ", "))")
                     .font(.subheadline)
 
-                Text("Airs at \(tvShow.schedule.time) on \(scheduleDays)")
+                Text("Airs at \(showDetail.schedule.time) on \(showDetail.schedule.days.joined(separator: ", "))")
                     .font(.subheadline)
 
-                Text("Summary")
+                RichTextView(html: showDetail.summary)
                     .font(.body)
 
                 Text("Episodes")
@@ -54,17 +51,25 @@ struct ShowView: View {
             }
             .padding()
         }
+    }
+    
+    var body: some View {
+        Group {
+            switch viewModel.state {
+                case .loading:
+                    ProgressView()
+                case .loaded(let showDetail):
+                    loadedView(showDetail: showDetail)
+                case .failed(let errorMessage):
+                    Text(errorMessage)
+            }
+        }
         .navigationTitle("Show Details")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            Task {
+                await viewModel.loadData()
+            }
+        }
     }
-}
-
-#Preview {
-    ShowView(tvShow: .init(id: 1,
-                           name: "The Amazing Show",
-                           image: .init(mediumURL: "",
-                                        originalURL: ""),
-                           genres: ["Drama", "Comedy", "Action"],
-                           schedule: .init(time: "21:00",
-                                           days: ["Sunday", "Saturday"])))
 }

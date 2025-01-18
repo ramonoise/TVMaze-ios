@@ -42,7 +42,7 @@ struct HomeSectionView: View {
                                 alignment: .bottom
                             )
                     }.onTapGesture {
-                        router.push(route: .show(item: item))
+                        router.push(route: .show(id: item.id))
                     }
                 }
             }
@@ -75,7 +75,7 @@ struct HomeSectionView: View {
                             .cornerRadius(2),
                         alignment: .bottom
                     ).onTapGesture {
-                        router.push(route: .show(item: item))
+                        router.push(route: .show(id: item.id))
                     }
             }
         }
