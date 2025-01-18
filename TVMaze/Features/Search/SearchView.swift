@@ -1,27 +1,41 @@
 import SwiftUI
 
 struct SearchView: View {
-    @State private var searchText = ""
-
+    @StateObject private var viewModel: SearchViewModel
+    
+    init(viewModel: SearchViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+    
+    private func performSearch() {
+        viewModel.fetchResults()
+    }
+    
+    private var shouldPresentResults: Bool {
+        viewModel.searchText.isEmpty == false
+        && viewModel.results.isEmpty == false
+    }
+    
     var body: some View {
         VStack {
-            TextField("Search TV series, shows, etc", text: $searchText)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]) {
-                    ForEach(0..<12) { _ in
-                        VStack {
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 100, height: 150)
-                                .foregroundColor(.gray)
-                            Text("Show's name")
-                                .font(.caption)
-                        }
+            TextField("Search TV series, shows, etc",
+                      text: $viewModel.searchText,
+                      onCommit: performSearch)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .textInputAutocapitalization(.words)
+            .padding()
+            
+            ScrollView() {
+                Group {
+                    if shouldPresentResults {
+                        HomeSectionView(section: .init(title: "Results for \"\(viewModel.searchText)\"",
+                                                       items: viewModel.results,
+                                                       type: .expanded(page: 1)))
+                    } else {
+                        Text("No results")
                     }
                 }
-                .padding()
+                
             }
         }
         .navigationTitle("Search")
@@ -29,6 +43,3 @@ struct SearchView: View {
     }
 }
 
-#Preview {
-    SearchView()
-}

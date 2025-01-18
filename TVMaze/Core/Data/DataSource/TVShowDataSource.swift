@@ -30,15 +30,17 @@ final class TVShowDataSource: TVShowDataSourceProtocol {
                    replacingParameters: ["page": String(page)])
         
         let response: [TVShowResponse] = try await httpClient.request(urlString: url)
-        return response.map { $0.toDomain() }
+        return response.compactMap { $0.toDomain() }
     }
     
     func fetchQuery(query: String, page: Int) async throws -> [TVShow] {
         let url = URLStringBuilder
-            .build(url: "https://api.tvmaze.com/shows?q=:query&page=:page",
+            .build(url: "https://api.tvmaze.com/search/shows?q=:query&page=:page",
                    replacingParameters: ["query": query,
                                          "page": String(page)])
-        let response: [TVShowResponse] = try await httpClient.request(urlString: url)
-        return response.map { $0.toDomain() }
+        debugPrint(url)
+        let response: [TVSearchShowResponse] = try await httpClient.request(urlString: url)
+        debugPrint(response)
+        return response.compactMap { $0.toDomain() }
     }
 }

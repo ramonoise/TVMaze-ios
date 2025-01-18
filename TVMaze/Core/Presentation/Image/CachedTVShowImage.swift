@@ -29,6 +29,7 @@ struct CachedImageWithFallback: View {
 }
 
 #Preview {
-CachedImageWithFallback(imageUrl: "https://dummyimage.com/1500",
-                        fallbackUrl: "https://dummyimage.com/150")
+    let dummyImageURL: String = "https://dummyimage.com/150"
+    return CachedImageWithFallback(imageUrl: dummyImageURL,
+                                   fallbackUrl: dummyImageURL)
 }

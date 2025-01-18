@@ -23,7 +23,7 @@ final class AppRouter: RouterProtocol {
             case .episode(let episode):
                 EpisodeFactory.build(episode: episode)
             case .search:
-                SearchView()
+                SearchFactory.build()
         }
     }
 }

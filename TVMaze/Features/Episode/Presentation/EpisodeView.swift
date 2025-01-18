@@ -31,11 +31,11 @@ struct EpisodeView: View {
 }
 
 #Preview {
-    EpisodeView(episode: .init(id: 1,
-                               name: "Mocked Episode",
-                               number: 10,
-                               season: 1,
-                               summary: "<b>Lorem</b> ipsum",
-                               image: .init(mediumURL: "https://dummyimage.com/150",
-                                            originalURL: "https://dummyimage.com/150")))
+    EpisodeView(
+        episode: .init(id: 1,
+                       name: "Mocked Episode",
+                       number: 10,
+                       season: 1,
+                       summary: "<b>Lorem</b> ipsum",
+                       image: .dummy()))
 }
