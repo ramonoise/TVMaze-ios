@@ -1,6 +1,6 @@
 import Foundation
 
-struct TVShowImage: Decodable, Hashable {
+struct TVShowImage: Hashable, Codable {
     let mediumURL: String
     let originalURL: String
 }

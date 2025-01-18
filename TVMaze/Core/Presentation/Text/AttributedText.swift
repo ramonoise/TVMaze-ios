@@ -9,7 +9,7 @@ struct RichTextView: View {
             RichText(html: html)
                 .lineHeight(170)
                 .colorScheme(.auto)
-                .linkColor(light: Color.blue, dark: Color.blue)
+                .linkColor(light: Color.accentColor, dark: Color.accentColor)
                 .colorPreference(forceColor: .onlyLinks)
                 .linkOpenType(.SFSafariView())
                 .transition(.easeIn)

@@ -38,9 +38,7 @@ final class TVShowDataSource: TVShowDataSourceProtocol {
             .build(url: "https://api.tvmaze.com/search/shows?q=:query&page=:page",
                    replacingParameters: ["query": query,
                                          "page": String(page)])
-        debugPrint(url)
         let response: [TVSearchShowResponse] = try await httpClient.request(urlString: url)
-        debugPrint(response)
         return response.compactMap { $0.toDomain() }
     }
 }

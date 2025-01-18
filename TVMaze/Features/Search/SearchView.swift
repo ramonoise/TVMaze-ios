@@ -11,31 +11,23 @@ struct SearchView: View {
         viewModel.fetchResults()
     }
     
-    private var shouldPresentResults: Bool {
-        viewModel.searchText.isEmpty == false
-        && viewModel.results.isEmpty == false
-    }
-    
     var body: some View {
         VStack {
-            TextField("Search TV series, shows, etc",
-                      text: $viewModel.searchText,
-                      onCommit: performSearch)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .textInputAutocapitalization(.words)
-            .padding()
-            
-            ScrollView() {
-                Group {
-                    if shouldPresentResults {
-                        HomeSectionView(section: .init(title: "Results for \"\(viewModel.searchText)\"",
-                                                       items: viewModel.results,
-                                                       type: .expanded(page: 1)))
-                    } else {
-                        Text("No results")
-                    }
+            Group {
+                searchBar()
+                switch viewModel.state {
+                    case .emptyState:
+                        Text("Search for TV series, shows, movies...")
+                    case .noResults:
+                        Text("No results for \"\(viewModel.resultsText)\"")
+                    case .loading:
+                        ProgressView()
+                    case .loaded(let shows):
+                        loadedState(shows: shows)
+                    case .failed(let errorMessage):
+                        Text(errorMessage)
                 }
-                
+                Spacer()
             }
         }
         .navigationTitle("Search")
@@ -43,3 +35,29 @@ struct SearchView: View {
     }
 }
 
+// MARK: Extensions
+private extension SearchView {
+    @ViewBuilder func searchBar() -> some View {
+        HStack {
+            TextField("Search...",
+                      text: $viewModel.searchText,
+                      onCommit: performSearch)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .textInputAutocapitalization(.words)
+            
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.accentColor)
+                .onTapGesture(perform: performSearch)
+        }.padding()
+    }
+    
+    @ViewBuilder
+    func loadedState(shows: [TVShow]) -> some View {
+        ScrollView {
+            HomeSectionView(
+                section: HomeSectionItem(title: "Results for \"\(viewModel.resultsText)\"",
+                                         items: shows,
+                                         type: .expanded(page: 1)))
+        }
+    }
+}

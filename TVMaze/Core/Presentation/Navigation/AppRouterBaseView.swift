@@ -13,6 +13,9 @@ struct AppRouterBaseView: View {
                 }
         }
         .environmentObject(router)
+        .onChange(of: router.path) { newPath in
+            print("Updated path: \(newPath)")
+        }
     }
 }
 

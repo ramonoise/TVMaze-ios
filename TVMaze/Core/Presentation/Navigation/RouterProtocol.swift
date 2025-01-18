@@ -12,6 +12,7 @@ protocol RouterProtocol: Observable, ObservableObject {
     func popToRoot()
 }
 
+@MainActor
 extension RouterProtocol {
     func push(route: Route) {
         path.append(route)
