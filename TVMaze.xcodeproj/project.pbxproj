@@ -31,6 +31,7 @@
 		15E27FBE2D3BEAEE008D9F23 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E27FBD2D3BEAEE008D9F23 /* SearchViewModel.swift */; };
 		15E27FC12D3BED44008D9F23 /* SearchFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E27FC02D3BED44008D9F23 /* SearchFactory.swift */; };
 		15E27FC42D3BEE5D008D9F23 /* TVShowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E27FC32D3BEE5D008D9F23 /* TVShowCardView.swift */; };
+		15E27FC92D3BFB3D008D9F23 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E27FC82D3BFB3C008D9F23 /* Dependencies.swift */; };
 		15EEA3C02D3AF294006C02AF /* TVShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3BF2D3AF294006C02AF /* TVShow.swift */; };
 		15EEA3C32D3AF675006C02AF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */; };
 		15EEA3C62D3AF7ED006C02AF /* HomeSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */; };
@@ -98,6 +99,7 @@
 		15E27FBD2D3BEAEE008D9F23 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		15E27FC02D3BED44008D9F23 /* SearchFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactory.swift; sourceTree = "<group>"; };
 		15E27FC32D3BEE5D008D9F23 /* TVShowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowCardView.swift; sourceTree = "<group>"; };
+		15E27FC82D3BFB3C008D9F23 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
 		15EEA3BF2D3AF294006C02AF /* TVShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShow.swift; sourceTree = "<group>"; };
 		15EEA3C22D3AF675006C02AF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		15EEA3C52D3AF7ED006C02AF /* HomeSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSectionItem.swift; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 		159CF9CF2D39C2AC004E6AD4 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				15E27FC72D3BFB32008D9F23 /* Dependency */,
 				159CF9D32D39CAD0004E6AD4 /* DataSource */,
 				159CF9D02D39C2B6004E6AD4 /* Model */,
 				159CF9CB2D39C24D004E6AD4 /* Network */,
@@ -377,6 +380,14 @@
 				15E27FC32D3BEE5D008D9F23 /* TVShowCardView.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		15E27FC72D3BFB32008D9F23 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				15E27FC82D3BFB3C008D9F23 /* Dependencies.swift */,
+			);
+			path = Dependency;
 			sourceTree = "<group>";
 		};
 		15EEA3BC2D3AF277006C02AF /* Domain */ = {
@@ -602,6 +613,7 @@
 				159CF9B42D39972C004E6AD4 /* SearchView.swift in Sources */,
 				15EEA3DD2D3B1842006C02AF /* TVShowSchedule.swift in Sources */,
 				15EEA3D42D3B151C006C02AF /* ScheduleResponse.swift in Sources */,
+				15E27FC92D3BFB3D008D9F23 /* Dependencies.swift in Sources */,
 				159CF9B12D3996CA004E6AD4 /* HomeView.swift in Sources */,
 				15EEA3E52D3B1D73006C02AF /* ShowDetailFactory.swift in Sources */,
 				159CF9D22D39C369004E6AD4 /* TVShowResponse.swift in Sources */,

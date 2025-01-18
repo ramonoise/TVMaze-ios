@@ -14,16 +14,16 @@ final class AppRouter: RouterProtocol {
     @Published var path: NavigationPath = NavigationPath()
     
     @ViewBuilder
-    func build(route: AppRoute) -> some View {
+    func build(route: AppRoute, dependencies: TVShowDependencies) -> some View {
         switch route {
             case .main:
-                HomeFactory.build()
+                HomeFactory.build(with: dependencies)
             case let .show(id):
-                ShowDetailFactory.build(showId: id)
+                ShowDetailFactory.build(showId: id, with: dependencies)
             case .episode(let episode):
                 EpisodeFactory.build(episode: episode)
             case .search:
-                SearchFactory.build()
+                SearchFactory.build(with: dependencies)
         }
     }
 }

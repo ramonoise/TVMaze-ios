@@ -19,9 +19,9 @@ final class ShowDetailViewModel: ShowDetailViewModelProtocol {
     private(set) var dataSource: TVShowDataSourceProtocol
     private(set) var showId: Int
     
-    init(dataSource: TVShowDataSourceProtocol = TVShowDataSource(), showId: Int) {
-        self.dataSource = dataSource
+    init(showId: Int, dataSource: TVShowDataSourceProtocol) {
         self.showId = showId
+        self.dataSource = dataSource
     }
     
     func loadData() async {

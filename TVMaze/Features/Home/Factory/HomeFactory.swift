@@ -2,8 +2,8 @@ import Foundation
 
 @MainActor
 class HomeFactory {
-    static func build() -> HomeView {
-        let viewModel = HomeViewModel(dataSource: TVShowDataSource())
+    static func build(with dependencies: TVShowDependencies) -> HomeView {
+        let viewModel = HomeViewModel(dataSource: dependencies.tvShowDataSource)
         return HomeView(viewModel: viewModel)
     }
 }

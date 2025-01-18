@@ -1,7 +1,7 @@
 import Foundation
 
 protocol TVShowDataSourceProtocol {
-    init(httpClient: HttpClient)
+    init(httpClient: HttpClientProtocol)
     
     func fetchShows(page: Int) async throws -> [TVShow]
     func fetchShowDetail(id: Int) async throws -> TVShowDetail
@@ -9,9 +9,9 @@ protocol TVShowDataSourceProtocol {
 }
 
 final class TVShowDataSource: TVShowDataSourceProtocol {
-    private var httpClient: HttpClient
+    private var httpClient: HttpClientProtocol
     
-    init(httpClient: HttpClient = HttpClient()) {
+    init(httpClient: HttpClientProtocol = HttpClient()) {
         self.httpClient = httpClient
     }
     
