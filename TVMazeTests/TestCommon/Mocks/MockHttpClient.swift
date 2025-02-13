@@ -18,8 +18,8 @@ final class MockHttpClient: HttpClientProtocol {
     }
     
     init() {
-        var urlSession = MockURLSession()
-        var decoder = MockJSONDecoder()
+        let urlSession = MockURLSession()
+        let decoder = MockJSONDecoder()
         
         self.urlSession = urlSession
         self.mockUrlSession = urlSession

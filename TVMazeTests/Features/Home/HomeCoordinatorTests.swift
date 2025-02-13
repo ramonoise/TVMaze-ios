@@ -23,21 +23,13 @@ class HomeCoordinatorTests: XCTestCase {
         let id = 1
         let resolvedView = coordinator.resolve(route: .showCard(id: id))
         
-        if let typedView = resolvedView as? TypedAnyView {
-            XCTAssertTrue(typedView.viewType() == ShowDetailView.self, "Expected ShowDetailView but got \(typedView.viewType())")
-        } else {
-            XCTFail("Expected ShowDetailView but got \(type(of: resolvedView))")
-        }
+        XCTAssertTrue(resolvedView.viewType() == ShowDetailView.self, "Expected ShowDetailView but got \(resolvedView.viewType())")
     }
 
     @MainActor
     func testResolveSearchRoute() {
         let resolvedView = coordinator.resolve(route: .search)
         
-        if let typedView = resolvedView as? TypedAnyView {
-            XCTAssertTrue(typedView.viewType() == SearchView.self, "Expected SearchView but got \(typedView.viewType())")
-        } else {
-            XCTFail("Expected SearchView but got \(type(of: resolvedView))")
-        }
+        XCTAssertTrue(resolvedView.viewType() == SearchView.self, "Expected SearchView but got \(resolvedView.viewType())")
     }
 }

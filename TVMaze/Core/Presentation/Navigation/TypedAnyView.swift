@@ -17,3 +17,9 @@ struct TypedAnyView: View {
         content
     }
 }
+
+extension View {
+    func wrapInTypedAnyView() -> TypedAnyView {
+        TypedAnyView(self)
+    }
+}

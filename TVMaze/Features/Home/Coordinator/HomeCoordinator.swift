@@ -14,7 +14,7 @@ protocol HomeCoordinatorProtocol {
     func resolve(route: HomeRoute) -> ResolvedView
 }
 
-final class HomeCoordinator: HomeCoordinatorProtocol {
+final class HomeCoordinator: @preconcurrency HomeCoordinatorProtocol {
     var dependencies: TVShowDependencies
     
     init(dependencies: TVShowDependencies) {
@@ -22,12 +22,14 @@ final class HomeCoordinator: HomeCoordinatorProtocol {
     }
     
     @MainActor
-    func resolve(route: HomeRoute) -> some View {
+    func resolve(route: HomeRoute) -> TypedAnyView {
         switch route {
-            case .showCard(let id):
-                TypedAnyView(ShowDetailFactory.build(showId: id, with: dependencies))
-            case .search:
-                TypedAnyView(SearchFactory.build(with: dependencies))
+        case .showCard(let id):
+            ShowDetailFactory.build(showId: id, with: dependencies)
+                .wrapInTypedAnyView()
+        case .search:
+            SearchFactory.build(with: dependencies)
+                .wrapInTypedAnyView()
         }
     }
 }
